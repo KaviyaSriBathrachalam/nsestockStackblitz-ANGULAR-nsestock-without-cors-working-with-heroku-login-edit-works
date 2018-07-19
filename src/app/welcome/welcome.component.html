@@ -1,0 +1,144 @@
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+</head>
+
+
+<body ng-app="ngoptionsApp" ng-controller="ngoptionsCtrl">
+	<form>
+   <br>
+    <br>
+     <br>
+<tr>
+		<div class="container">
+		<td>	<select name="category" #productId="ngModel" [(ngModel)]="category" required>
+    <option></option>
+    <option *ngFor="let category of catNames" [value]="category">{{category}}</option>
+</select></td>
+<td> </td> 
+		<td> <button type="button" class="button button5" (click)="all_list()">CAT-WISE-LIST</button></td>
+
+			<td>  </td>
+		<td>	<button type="button" class="button button2" (click)="savemethod()">SAVE</button></td>
+
+
+		</div>
+</tr>
+	</form>
+
+	<mat-paginator [length]="5" [pageSize]="4" [pageSizeOptions]="[5, 10, 25]">
+	</mat-paginator>
+
+
+	<div class="example-container mat-elevation-z8">
+		<div class="example-header">
+			<mat-form-field>
+				<input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+			</mat-form-field>
+		</div>
+		<mat-table #table [dataSource]="dataSource" matSort>
+			<ng-container matColumnDef="Check">
+				<mat-header-cell *matHeaderCellDef mat-sort-header> Check </mat-header-cell>
+				<mat-cell *matCellDef="let element">
+					<input type="checkbox" (change)="Method1($event,element.symbol)">
+					<!-- <mat-icon>delete</mat-icon> -->
+				</mat-cell>
+			</ng-container>
+
+	     <ng-container matColumnDef="Index">
+				<mat-header-cell *matHeaderCellDef mat-sort-header>Index </mat-header-cell>
+				<mat-cell *matCellDef="let element"> {{category}} </mat-cell>
+			</ng-container>
+			<ng-container matColumnDef="position">
+				<mat-header-cell *matHeaderCellDef mat-sort-header>Symbol </mat-header-cell>
+				<mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+			</ng-container>
+
+			<ng-container matColumnDef="firstName">
+				<mat-header-cell *matHeaderCellDef mat-sort-header>ltp</mat-header-cell>
+				<mat-cell *matCellDef="let element"> {{element.ltP}} </mat-cell>
+			</ng-container>
+
+			<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+			<mat-row *matRowDef="let row; columns: displayedColumns;" ></mat-row>
+		</mat-table>
+	</div>
+</body>
+
+
+<!-- <body ng-app="ngoptionsApp" ng-controller="ngoptionsCtrl">
+	<form>
+
+		<div class="container">
+			<br>
+			<select name="category" #productId="ngModel" [(ngModel)]="category" required>
+    <option></option>
+    <option *ngFor="let category of catNames" [value]="category">{{category}}</option>
+</select>
+
+			<br><br> <button type="button" class="btn btn-outline-success" (click)="all_list()">cat_wise_list</button> &nbsp; &nbsp;
+			&nbsp; &nbsp;
+			<button type="button" class="btn btn-outline-success" (click)="savemethod()">Save</button>
+			<br>
+			<br>
+			<!-- <button type="button" class="btn btn-primary" (click)="getall()">Current stock</button>
+       <button type="button" class="btn btn-warning" (click)="selectedallmethods()">CART</button> -->
+<!-- <div class="example-container mat-elevation-z8">
+				<div class="example-header">
+					<mat-form-field>
+						<input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+					</mat-form-field>
+				</div>
+			</div>
+
+			<table class="table">
+				<thead>
+					<tr>
+
+						<th>Select</th>
+						<th>Index</th>
+						<th>Symbol</th> -->
+<!-- <th>ltP</th>
+						<th>previousClose</th>
+						<th>ptsC</th> -->
+<!-- <th>Status</th> -->
+<!-- </tr>
+				</thead>
+				<tbody>
+
+					<tr *ngFor="let scrip of vall">
+						<td><input type="checkbox" (change)="Method1($event,scrip.symbol) "></td>
+						<td class="table-light">{{this.category}}</td>
+						<td class="table-light">{{scrip.symbol}}</td> -->
+<!-- <td class="table-primary">{{scrip.ltP}}</td>
+						<td class="table-secondary">{{scrip.previousClose}}</td>
+						<td class="table-active">{{scrip.ptsC}}</td> -->
+<!-- <td>
+            
+							<div *ngIf="scrip.ptsC>0; else templateName">
+								<i class="fa fa-caret-up" style="font-size:50px;color:green"></i>
+							</div>
+							<ng-template #templateName>
+								<i class="fa fa-caret-down" style="font-size:50px;color:red"></i>
+							</ng-template>
+						</td> -->
+<!-- </tr>
+				</tbody>
+			</table>
+
+		</div>
+
+	</form> 
+
+</body> -->
+
+</html>

@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+
+  <button mat-button routerLink="/home">Home</button>
+  <button mat-button *ngIf="!auth.isLoggednIn()" routerLink="/register">Register</button>
+  <button mat-button *ngIf="!auth.isLoggednIn()" routerLink="/login">Login</button>
+  <button mat-button *ngIf="auth.isLoggednIn()" (click)="auth.logout()">Logout</button>
+ <button mat-button routerLink="/portfolio">Portfolio</button>
+ <button  mat-button routerLink="['/dashboard',id]">Dashboard</button>
+ <!-- <button mat-button *ngIf="!auth.isLoggednIn()" routerLink="/welcome">welcome</button> -->
+
+</mat-toolbar>
