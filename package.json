@@ -25,6 +25,7 @@
     "core-js": "^2.5.4",
     "rxjs": "^6.2.2",
     "zone.js": "^0.8.26"
+    "hoek" : "^4.2.1"
   },
   "devDependencies": {
     "@angular/compiler-cli": "^6.0.3",
@@ -48,3 +49,6 @@
     "tslint": "~5.9.1"
   }
 }
+
+
+
